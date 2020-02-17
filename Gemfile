@@ -46,7 +46,10 @@ group :development, :test do
   gem 'guard-rspec'
 
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3' # Comment by Junyu, Feb.16 2020
+
+  # Use PostgreSQL as the database, cause Heroku does not support the Sqlite3 database
+  gem 'pg', '~> 0.21'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
