@@ -51,5 +51,6 @@ class MoviesController < ApplicationController
       return nil
     end
   end
+  helper_method :hilite
 
 end
