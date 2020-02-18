@@ -49,7 +49,7 @@ group :development, :test do
   # gem 'sqlite3' # Comment by Junyu, Feb.16 2020
 
   # Use PostgreSQL as the database, cause Heroku does not support the Sqlite3 database
-  gem 'pg', '~> 0.21'
+  gem 'pg', '~> 0.21' # for Heroku deployment
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

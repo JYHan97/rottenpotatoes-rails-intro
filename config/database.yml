@@ -25,7 +25,6 @@
 #  database: db/production.sqlite3
 
 # Modified Feb.16 2020 by Junyu
-# Some modifications to files. (Heroku does not support the Sqlite3 database.)
 default: &default
   adapter: postgresql
   encoding: unicode
