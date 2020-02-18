@@ -43,5 +43,13 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
+  
+  def hilite header_name
+    if header_name == params[:order]
+      return 'hilite'
+    else
+      return nil
+    end
+  end
 
 end
