@@ -4,9 +4,11 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th= link_to "Movie Title", movie_path({:order => 'title'}), :id => 'title_header'
+      %th
+        %a{:id=> 'title_header', :href=> movie_path({:order => 'title'})} Movie Title
       %th Rating
-      %th= link_to "Release Date", movie_path({:order => 'release_date'}), :id => 'release_date_header'
+      %th
+        %a{:id=>'release_date_header', :href=> movie_path({:order => 'release_date'})} Release Date
       %th More Info
   %tbody
     - @movies.each do |movie|
