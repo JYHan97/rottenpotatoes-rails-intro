@@ -17,7 +17,6 @@ class MoviesController < ApplicationController
     # @movies = Movie.order params[:order] # Part 1 code
     
     # Part 2
-    
     @all_ratings = Movie.all_ratings # set @all_ratings by consulting the Modle
     @selected_ratings = params[:ratings] || session[:ratings] || {}
     @order = params[:order] || session[:order]
@@ -35,7 +34,6 @@ class MoviesController < ApplicationController
     @movies = Movie.with_ratings(@selected_ratings.keys)
     # keep sorted column when reload
     @movies = @movies.order @order
-    # end
   end
 
   def new
