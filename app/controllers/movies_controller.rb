@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
       # no boxes be checked
       @movies = Movie.order params[:order]
     else
-      # checked something show cheched items
+      # show selected boxes' items
       @movies = Movie.with_ratings(params[:ratings].keys)
       @movies = @movies.order params[:order]
     end
