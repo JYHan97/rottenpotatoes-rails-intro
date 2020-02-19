@@ -25,6 +25,7 @@ class MoviesController < ApplicationController
     else
       # checked something show cheched items
       @movies = Movie.with_ratings(params[:ratings].keys)
+      @movies = @movies.order params[:order]
     end
   end
 

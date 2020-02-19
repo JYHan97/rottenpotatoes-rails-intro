@@ -8,6 +8,6 @@ class Movie < ActiveRecord::Base
   end
   
   def self.with_ratings (ratings)
-    return self.where(rating: ratings).order params[:order]
+    return self.where(rating: ratings)
   end
 end
