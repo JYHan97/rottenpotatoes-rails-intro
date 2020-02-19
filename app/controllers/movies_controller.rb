@@ -24,6 +24,13 @@ class MoviesController < ApplicationController
     if @selected_ratings == {}
       @selected_ratings = Hash[@all_ratings.map {|rating| [rating, "1"]}]
     end
+    if session[:ratings] != @selected_ratings
+      session[:ratings] = @selected_ratings
+    end
+    if session[:order] != @order
+      session[:order] = @order
+    end
+    
     # show selected boxes' items
     @movies = Movie.with_ratings(@selected_ratings.keys)
     # keep sorted column
