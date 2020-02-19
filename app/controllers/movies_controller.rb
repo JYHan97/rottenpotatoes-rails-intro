@@ -17,12 +17,14 @@ class MoviesController < ApplicationController
     # @movies = Movie.order params[:order] # Part 1 code
     
     # Part 2
-    @all_ratings = Movie.all_ratings
-    if params[:ratings].nil?
+    
+    @all_ratings = Movie.all_ratings # set @all_ratings by consulting the Modle
+    if params[:ratings] == nil
+      # no boxes be checked
       @movies = Movie.order params[:order]
     else
-      selected_rating = params[:ratings].keys
-      @movies = Movie.where(rating: selected_rating).order params[:order]
+      # checked something show cheched items
+      @movies = Movie.with_ratings(params[:ratings].keys)
     end
   end
 
