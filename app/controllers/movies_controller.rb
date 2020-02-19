@@ -22,10 +22,12 @@ class MoviesController < ApplicationController
     @selected_ratings = params[:ratings] || session[:ratins] || {}
     if @selected_ratings == {}
       @selected_ratings = Hash[@all_ratings.map {|rating| [rating, "1"]}]
+    end
     # if selected_ratings.nil?
     #   # no boxes be checked, show all movies
     #   @movies = Movie.order params[:order]
     # else
+    
     # show selected boxes' items
     @movies = Movie.with_ratings(@selected_ratings.keys)
     # keep sorted column
