@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
     
     # show selected boxes' items
     @movies = Movie.with_ratings(@selected_ratings.keys)
-    # keep sorted column
+    # keep sorted column when reload
     @movies = @movies.order @order
     # end
   end
