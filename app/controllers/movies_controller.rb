@@ -19,16 +19,18 @@ class MoviesController < ApplicationController
     # Part 2
     
     @all_ratings = Movie.all_ratings # set @all_ratings by consulting the Modle
-    @selected_ratings = params[:ratings]
-    if selected_ratings.nil?
-      # no boxes be checked, show all movies
-      @movies = Movie.order params[:order]
-    else
-      # show selected boxes' items
-      @movies = Movie.with_ratings(params[:ratings].keys)
-      # keep sorted column
-      @movies = @movies.order params[:order]
-    end
+    @selected_ratings = params[:ratings] || session[:ratins] || {}
+    if @selected_ratings == {}
+      @selected_ratings = @all_ratings.to_h{|x| [x, 1]}
+    # if selected_ratings.nil?
+    #   # no boxes be checked, show all movies
+    #   @movies = Movie.order params[:order]
+    # else
+    # show selected boxes' items
+    @movies = Movie.with_ratings(@selected_ratings.keys)
+    # keep sorted column
+    @movies = @movies.order params[:order]
+    # end
   end
 
   def new
