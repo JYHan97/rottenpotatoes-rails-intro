@@ -67,7 +67,7 @@ class MoviesController < ApplicationController
   end
   
   def hilite header_name
-    if header_name == params[:order]
+    if header_name == @order
       return 'hilite'
     else
       return nil
