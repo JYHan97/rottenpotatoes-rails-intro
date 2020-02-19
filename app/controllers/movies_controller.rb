@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings # set @all_ratings by consulting the Modle
     @selected_ratings = params[:ratings] || session[:ratins] || {}
     if @selected_ratings == {}
-      @selected_ratings = @all_ratings.to_h{|x| [x, 1]}
+      @selected_ratings = Hash[@all_ratings.map {|rating| [rating, "1"]}]
     # if selected_ratings.nil?
     #   # no boxes be checked, show all movies
     #   @movies = Movie.order params[:order]
